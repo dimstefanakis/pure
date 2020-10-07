@@ -1,0 +1,22 @@
+.header{
+  transition: all 0.3s ease-out;
+  z-index: 1000;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  background: transparent;
+  margin-bottom: 1.45rem;
+  
+}
+
+.header-shadow{
+  box-shadow: rgba(0, 0, 0, 0.255) 0px 0px 3px -42px, rgba(0, 0, 0, 0.39) 
+  0px 0px 7.5px -42px, rgba(0, 0, 0, 0.518) 0px 0px 15.2px -42px, 
+  rgba(0, 0, 0, 0.67) 0px 0px 31.4px -42px, rgb(0, 0, 0) 0px 0px 86px -42px;
+}
+
+.header-logo{
+  transition: all 0.3s ease-out;
+  height:30px;
+  fill: white;
+}

@@ -1,0 +1,19 @@
+.title-header-container{
+  position: absolute;
+  /*padding: 10%;*/
+}
+
+.main-font{
+  font-family: 'Questrial', sans-serif;
+  color: white;
+}
+
+.main-title{
+  margin: 10px 0;
+  font-size: 6rem;
+  letter-spacing: 10px;
+}
+
+.secondary-title{
+  font-size: 2rem;
+}
