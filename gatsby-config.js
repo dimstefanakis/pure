@@ -5,12 +5,22 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      // This plugin lets me access environment variables that
+      // aren't prefixed with Gatsby. This allows me to use
+      // Shopify-related variables in the context setup script.
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        whitelist: ["SHOP_NAME", "SHOP_TOKEN"],
       },
     },
     `gatsby-transformer-sharp`,
@@ -25,6 +35,18 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: `gatsby-source-shopify`,
+      options: {
+        // The domain name of your Shopify shop.
+        shopName: 'purestoredev.myshopify.com',
+        // The storefront access token
+        accessToken: '72b511a5543176d05066d6b2d18d5e76',
+        apiVersion: "2021-04",
+        verbose: true,
+        includeCollections: ["shop", "content"],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

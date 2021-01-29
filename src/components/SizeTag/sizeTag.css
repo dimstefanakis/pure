@@ -1,0 +1,12 @@
+.size-tag{
+  margin: 5px;
+  padding: 8px;
+  background-color: gray;
+  color: black;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.size-tag-selected{
+  border: 2px solid gray;
+}

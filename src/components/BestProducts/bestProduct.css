@@ -1,0 +1,30 @@
+.best-product{
+  width: 27%;
+  display: flex;
+  flex-flow: column;
+  margin: 1em;
+  padding: 1em;
+  flex-grow: 1;
+  min-width: 200px;
+}
+
+.best-product-image{
+  height: 100%;
+  object-fit: cover;
+}
+
+.best-product-handle{
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.best-product-price{
+  font-weight: bold;
+}
+
+@media all and (max-width: 767px){
+  .best-product-handle{
+    font-size: 1.5rem;
+  }
+}

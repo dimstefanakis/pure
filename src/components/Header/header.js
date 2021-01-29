@@ -27,16 +27,14 @@ const Header = ({ siteTitle }) => {
     }
   },[])
   return (
-    <header className={`header ${isDocked?'':'header-shadow'}`} style={{backgroundColor:isDocked?'transparent':'white'}}>
+    <header className={`header ${isDocked?'header-docked':'header-shadow'}`}>
       <div className="app-container">
         <h1 style={{ margin: 0, display:'flex', flexFlow: 'row', alignItems:'center' }}>
           <div style={{flexGrow: 1}}>
             <Link
               to="/"
               style={{
-                color: `white`,
                 textDecoration: `none`,
-                
               }}
             >
               <Logo className="header-logo" style={{fill:isDocked?'white':'black'}}/>
@@ -58,7 +56,6 @@ function MenuLink({to,text}){
       to={to}
       style={{
         padding:'10px 20px',
-        color: `white`,
         textDecoration: `none`,
         fontSize:'1.3rem'
         }}

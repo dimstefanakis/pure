@@ -4,15 +4,30 @@
   position: fixed;
   top: 0px;
   width: 100vw;
-  background: transparent;
-  margin-bottom: 1.45rem;
-  
+  background: white;
+  color: black;
+  margin-bottom: 1.45rem; 
+}
+
+.header a{
+  color: black
+}
+
+.header-docked{
+  background-color: transparent;
+  color: white;
+}
+
+.header-docked a{
+  color: white;
 }
 
 .header-shadow{
-  box-shadow: rgba(0, 0, 0, 0.255) 0px 0px 3px -42px, rgba(0, 0, 0, 0.39) 
-  0px 0px 7.5px -42px, rgba(0, 0, 0, 0.518) 0px 0px 15.2px -42px, 
-  rgba(0, 0, 0, 0.67) 0px 0px 31.4px -42px, rgb(0, 0, 0) 0px 0px 86px -42px;
+  box-shadow:
+  0 0.2px 0.5px rgba(0, 0, 0, 0.017),
+  0 0.6px 1.4px rgba(0, 0, 0, 0.025),
+  0 1.5px 3.3px rgba(0, 0, 0, 0.033),
+  0 5px 11px rgba(0, 0, 0, 0.05);
 }
 
 .header-logo{
