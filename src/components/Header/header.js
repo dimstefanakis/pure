@@ -1,24 +1,39 @@
+import React, {useState, useEffect, useContext} from "react"
+
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, {useState, useEffect} from "react"
+import { ShoppingCartOutlined } from '@ant-design/icons';
 import Logo from '../Icons/Logo';
+import { CartContext } from "../../contexts/CartContext"
 import './header.css'
 
 const Header = ({ siteTitle }) => {
-  const [isDocked,setDocked] = useState(true);
+  const [isDocked, setDocked] = useState(true);
+  const {
+    cart: {
+      checkout: { lineItems },
+    },
+  } = useContext(CartContext)
 
   function handleScroll(){
     if (typeof window !== 'undefined') {
-      if(window.scrollY > 0){
+      if(window.location.pathname.includes('/product/')){
         setDocked(false);
       }else{
-        setDocked(true);
+        if(window.scrollY > 0){
+          setDocked(false);
+        }else{
+          setDocked(true);
+        }
       }
     }
   }
 
   useEffect(()=>{
     if (typeof window !== 'undefined') {
+      if(window.location.pathname.includes('/product/')){
+        setDocked(false);
+      }
       window.addEventListener('scroll', handleScroll)
 
       return ()=>{
@@ -43,14 +58,17 @@ const Header = ({ siteTitle }) => {
           <MenuLink to="/collections" text="Collections"/>
           <MenuLink to="/ab" text="About"/>
           <MenuLink to="/collections" text="Contact"/>
-
+          <MenuLink to="/cart">
+            <ShoppingCartOutlined />
+            <span>{lineItems.length}</span>
+          </MenuLink>
         </h1>
       </div>
     </header>
   )
 }
 
-function MenuLink({to,text}){
+function MenuLink({to, text, children}){
   return(
     <Link
       to={to}
@@ -61,6 +79,7 @@ function MenuLink({to,text}){
         }}
       >
       {text}
+      {children}
     </Link>
   )
 }

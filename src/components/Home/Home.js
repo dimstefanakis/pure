@@ -16,8 +16,7 @@ function Home({data}){
       <h1 className="image-text-splitter">Lorem ipsum dolor sit amet, consectetur.</h1>
       <SmallBackgroundImage src={Image} header="Lorem ipsum" subheader={`
       Sed ut nunc erat. Nam at commodo urna. Suspendisse lacinia arcu interdum, laoreet tortor ac,
-      tempor nunc. Sed nisi sem, viverra et cursus in, pulvinar commodo enim. Suspendisse eleifend rhoncus turpis vel dignissim. 
-      Sed aliquet viverra orci. Nullam vitae urna vitae neque auctor hendrerit non eu diam.`}/>
+      tempor nunc.`}/>
       <h1 className="image-text-splitter">Lorem ipsum dolor sit amet, consectetur.</h1>
       <BestProducts data={data} />
     </>

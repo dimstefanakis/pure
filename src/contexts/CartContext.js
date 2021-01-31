@@ -1,13 +1,13 @@
 import React, { createContext, useReducer, useEffect, useContext } from "react"
 import Client from "shopify-buy"
 
-import { cartReducer } from "../reducers/CartReducer"
+import { cartReducer } from "../reducers/CardReducer";
 
 const SHOPIFY_CHECKOUT_STORAGE_KEY = "shopify_checkout_id"
 
 const client = Client.buildClient({
-  storefrontAccessToken: process.env.SHOP_TOKEN,
-  domain: `${process.env.SHOP_NAME}`,
+  storefrontAccessToken: process.env.GATSBY_SHOP_TOKEN,
+  domain: `${process.env.GATSBY_SHOP_NAME}`,
 })
 
 function createNewCheckout(cart) {
@@ -39,6 +39,7 @@ const CartContextProvider = ({ children }) => {
       const existingCheckoutId = isBrowser
         ? localStorage.getItem(SHOPIFY_CHECKOUT_STORAGE_KEY)
         : null
+      console.log(existingCheckoutId);
       if (existingCheckoutId) {
         try {
           console.log("in");  
@@ -87,14 +88,15 @@ const CartContextProvider = ({ children }) => {
 function useAddItemToCart() {
   const { dispatch } = useContext(CartContext)
 
-  
+  console.log(process.env.GATSBY_SHOP_NAME)
+
   async function addItemToCart(variantId, quantity) {
     console.log("in",variantId, quantity)
     if (variantId === "" || !quantity) {
       console.error("Both a size and quantity are required.")
       return
     }
-
+    console.log(process.env.GATSBY_SHOP_NAME)
     const isBrowser = typeof window !== "undefined"
     const checkoutId = isBrowser
       ? localStorage.getItem(SHOPIFY_CHECKOUT_STORAGE_KEY)

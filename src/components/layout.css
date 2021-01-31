@@ -630,3 +630,9 @@ pre tt:after {
 .main{
   min-height: 100vh;
 }
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Questrial', sans-serif !important;
+}
+.cool-font{
+  font-family: 'Questrial', sans-serif !important;
+}

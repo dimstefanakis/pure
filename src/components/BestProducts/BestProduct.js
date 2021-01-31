@@ -8,9 +8,9 @@ function BestProduct({product}){
     <div className="best-product">
       <img src={product.images[0].originalSrc} className="best-product-image" />
       <div>
-        <p className="best-product-handle">{product.handle}</p>
-        <p className="best-product-price">€{product.priceRange.minVariantPrice.amount}</p>
-        <ViewProduct />
+        <h1 className="best-product-handle">{product.handle}</h1>
+        <p className="best-product-price cool-font">€{product.priceRange.minVariantPrice.amount}</p>
+        <ViewProduct product={product}/>
       </div>
     </div>
   )
