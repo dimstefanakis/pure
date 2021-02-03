@@ -15,29 +15,54 @@ const IndexPage = ({data}) => (
 export default IndexPage
 
 export const query = graphql`
-  {
-    allShopifyProduct(sort: { fields: [title] }) {
+  query {
+    products: allShopifyProduct(sort: { fields: [title] }) {
       edges {
         node {
           title
-          shopifyId
-          description
-          handle
-          images { 
+          images {
             originalSrc
           }
+          description
+          availableForSale
+          handle
+          shopifyId
+          descriptionHtml
           priceRange {
             minVariantPrice {
               amount
+              currencyCode
             }
           }
           variants {
+            id
             title
             availableForSale
             priceV2 {
               amount
+              currencyCode
+            }
+            shopifyId
+            selectedOptions {
+              name
+              value
             }
           }
+        }
+      }
+    }
+    collections: allShopifyCollection {
+      edges {
+        node {
+          products {
+            availableForSale
+            tags
+            shopifyId
+            variants {
+              id
+            }
+          }
+          title
         }
       }
     }

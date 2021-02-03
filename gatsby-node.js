@@ -4,8 +4,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   // Query for all products in Shopify
   let result = await graphql(`
-    {
-      allShopifyProduct(sort: { fields: [title] }) {
+    query {
+      products: allShopifyProduct(sort: { fields: [title] }) {
         edges {
           node {
             title
@@ -40,11 +40,49 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
+      collections: allShopifyCollection {
+        edges {
+          node {
+            title
+            products {
+              title
+              images {
+                originalSrc
+              }
+              description
+              availableForSale
+              handle
+              shopifyId
+              descriptionHtml
+              priceRange {
+                minVariantPrice {
+                  amount
+                  currencyCode
+                }
+              }
+              variants {
+                id
+                title
+                availableForSale
+                priceV2 {
+                  amount
+                  currencyCode
+                }
+                shopifyId
+                selectedOptions {
+                  name
+                  value
+                }
+              }
+            }
+          }
+        }
+      }
     }
   `)
   // Iterate over all products and create a new page using a template
   // The product "handle" is generated automatically by Shopify
-  result.data.allShopifyProduct.edges.forEach(({ node }) => {
+  result.data.products.edges.forEach(({ node }) => {
     createPage({
       path: `/product/${node.handle}`,
       component: path.resolve(`./src/components/Product/Product.js`),
@@ -67,8 +105,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-  // ...
-  // Create blog-list pages
   const posts = result.data.allShopifyProduct.totalCount
   const postsPerPage = 15
   const numPages = Math.ceil(posts / postsPerPage)
@@ -79,6 +115,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,
+        count: posts,
         numPages,
         currentPage: i + 1,
       },

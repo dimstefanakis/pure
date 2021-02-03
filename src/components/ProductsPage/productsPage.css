@@ -1,0 +1,23 @@
+.product-item{
+  display: flex;
+  flex-flow: column;
+  width: 25%;
+  margin: 20px;
+  padding: 20px;
+  min-width: 200px;
+  border-radius: 5px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.product-item:hover{
+  box-shadow:0 0.2px 0.5px rgb(0 0 0 / 2%), 0 0.6px 1.4px rgb(0 0 0 / 3%), 0 1.5px 3.3px rgb(0 0 0 / 3%), 0 5px 11px rgb(0 0 0 / 5%);
+}
+
+.product-list{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 70%;
+  flex-grow: 1;
+}

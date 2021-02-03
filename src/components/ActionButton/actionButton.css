@@ -6,4 +6,6 @@
   border: 0;
   font-weight: bold;
   cursor: pointer;
+  width: max-content;
+  margin-top: 50px;
 }

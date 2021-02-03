@@ -1,8 +1,7 @@
 import React from 'react';
 import { useAddItemToCart } from "../../contexts/CartContext";
-import './buyButton.css';
 
-function BuyButton({product}){
+function AddToCart({product}){
   const addItemToCart = useAddItemToCart();
 
   function handleAddToCart(variant){
@@ -10,10 +9,10 @@ function BuyButton({product}){
   }
 
   return(
-    <div className="buy-button cool-font" onClick={()=>handleAddToCart(product)}>
-      Purchase now
+    <div className="action-button cool-font" onClick={()=>handleAddToCart(product)}>
+      Add to cart
     </div>
   )
 }
 
-export default BuyButton;
+export default AddToCart;

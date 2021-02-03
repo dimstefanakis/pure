@@ -1,0 +1,27 @@
+.ant-input-group .ant-input{
+  border: 1px solid transparent;
+}
+
+.search-result-image{
+  height: 80%;
+  object-fit: cover;
+  margin: 0;
+  margin-left: 0;
+}
+
+.search-input{
+  width: 50%;
+}
+
+.search-input > .ant-select{
+  width: 100% !important;
+}
+
+.search-input .ant-btn-primary{
+  background-color: black;
+  border-color: black;
+}
+
+.search-input .ant-input-group-addon{
+  display: none;
+}

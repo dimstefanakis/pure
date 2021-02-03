@@ -6,7 +6,7 @@ function BestProducts({data}){
   console.log(data);
   return(
     <div className="best-products-container">
-      {data.allShopifyProduct.edges.map(product=>(
+      {data.products.edges.map(product=>(
         <React.Fragment key={product.node.shopifyId}>
           <BestProduct product={product.node}/>
         </React.Fragment>

@@ -636,3 +636,7 @@ h1, h2, h3, h4, h5, h6{
 .cool-font{
   font-family: 'Questrial', sans-serif !important;
 }
+
+span, p {
+  font-family: 'Questrial', sans-serif !important;
+}

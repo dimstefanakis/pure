@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from "react"
 
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import { ShoppingCartOutlined } from '@ant-design/icons';
+import { ShoppingOutlined } from '@ant-design/icons';
 import Logo from '../Icons/Logo';
 import { CartContext } from "../../contexts/CartContext"
 import './header.css'
@@ -17,7 +17,7 @@ const Header = ({ siteTitle }) => {
 
   function handleScroll(){
     if (typeof window !== 'undefined') {
-      if(window.location.pathname.includes('/product/')){
+      if(window.location.pathname.includes('/product/') || window.location.pathname.includes('/cart')){
         setDocked(false);
       }else{
         if(window.scrollY > 0){
@@ -31,7 +31,7 @@ const Header = ({ siteTitle }) => {
 
   useEffect(()=>{
     if (typeof window !== 'undefined') {
-      if(window.location.pathname.includes('/product/')){
+      if(window.location.pathname.includes('/product/') || window.location.pathname.includes('/cart')){
         setDocked(false);
       }
       window.addEventListener('scroll', handleScroll)
@@ -59,7 +59,7 @@ const Header = ({ siteTitle }) => {
           <MenuLink to="/ab" text="About"/>
           <MenuLink to="/collections" text="Contact"/>
           <MenuLink to="/cart">
-            <ShoppingCartOutlined />
+            <ShoppingOutlined />
             <span>{lineItems.length}</span>
           </MenuLink>
         </h1>

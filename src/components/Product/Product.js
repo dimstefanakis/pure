@@ -4,7 +4,7 @@ import Image from '../../images/bottom.jpg';
 import BigBackgroundImage from '../BigBackgroundImage/BigBackgroundImage';
 import SmallBackgroundImage from '../SmallBackgroundImage/SmallBackgroundImage';
 import SizeTagList from '../SizeTagList/SizeTagList';
-import BuyButton from '../BuyButton/BuyButton';
+import ActionButton from '../ActionButton/ActionButton';
 import './product.css';
 
 function Product({pageContext}){
@@ -24,7 +24,7 @@ function Product({pageContext}){
           <p className="cool-font" style={{maxWidth:800}}>{product.description}</p>
           <p className="cool-font" style={{fontWeight:'bold'}}>€{selected.priceV2.amount}</p>
           <SizeTagList variants={product.variants} selected={selected} setSelected={setSelected}/>
-          <BuyButton product={product}/>
+          <ActionButton product={product} title="Add to cart"/>
         </div>
       </div>
     </Layout>
