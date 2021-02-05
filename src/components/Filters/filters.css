@@ -1,0 +1,13 @@
+.collection-filter-container{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.collection-item-container{
+  width: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+}

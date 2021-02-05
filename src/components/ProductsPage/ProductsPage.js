@@ -21,7 +21,7 @@ function ProductsPage({pageContext, data}){
       <h1 className="image-text-splitter">Lorem ipsum dolor sit amet, consectetur.</h1>
       <Search products={data.products.edges} collections={data.collections.edges}/>
       <div style={{display: 'flex'}}>
-          <Filters/>
+          <Filters data={data}/>
           <div className="product-list">
           {data.products.edges.map(product=>(
             <ProductListItem product={product.node}/>
