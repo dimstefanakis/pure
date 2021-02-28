@@ -6,7 +6,7 @@ const isBrowser = typeof window !== 'undefined'
 const defaultStoreContext = {
   filteredCollection: 'Summer',
   filteredTags: [],
-  updateFilterTags: () => {},
+  updateFilterTags: () => [],
   updateFilterCollection: () => {},
   updateFilterType: () => {},
   updateFilterSort: () => {},

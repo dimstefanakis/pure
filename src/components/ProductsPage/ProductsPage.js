@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { graphql } from 'gatsby';
 import { navigate } from "@reach/router"  
 import Pagination from 'antd/es/pagination';
@@ -9,10 +9,33 @@ import SmallBackgroundImage from '../SmallBackgroundImage/SmallBackgroundImage';
 import ActionButton from '../ActionButton/ActionButton';
 import Search from '../Search/Search';
 import Filters from '../Filters/Filters';
+import {StoreContext} from '../../contexts/StoreContext';
 import './productsPage.css';
 
 function ProductsPage({pageContext, data}){
-  console.log(pageContext, data)
+  const [endProducts, setEndProducts] = useState(data.products.edges)
+  const storeContext = useContext(StoreContext);
+  console.log(pageContext, data, storeContext, "asda")
+
+  useEffect(()=>{
+    setEndProducts(oldProducts=>{
+      console.log(storeContext.filteredCollection,"asdsadsadsad")
+      let filterSet = storeContext.filteredCollection?
+        data.collections.edges.find(c=>c.node.title==storeContext.filteredCollection).node.products:
+        oldProducts
+
+      filterSet = filterSet.filter(f=>{
+        console.log(f.tags)
+        if(f.tags.some(tag=>storeContext.filteredTags.includes(tag))){
+          return true;
+        }
+      })
+      
+      return filterSet;
+    })
+  },[storeContext])
+
+  console.log(endProducts, "endproducts")
   return(
     <Layout>
       <SmallBackgroundImage src={Image} header="Products" subheader={`
@@ -20,17 +43,17 @@ function ProductsPage({pageContext, data}){
       tempor nunc.`}/>
       <h1 className="image-text-splitter">Lorem ipsum dolor sit amet, consectetur.</h1>
       <Search products={data.products.edges} collections={data.collections.edges}/>
-      <div style={{display: 'flex'}}>
+      <div style={{display: 'flex', width: '100%'}}>
           <Filters data={data}/>
           <div className="product-list">
-          {data.products.edges.map(product=>(
-            <ProductListItem product={product.node}/>
+          {endProducts.map(product=>(
+            <ProductListItem product={product.node?product.node:product}/>
           ))}
         </div>
       </div>
       
       <div style={{marginTop: 40}}>
-        <Pagination total={pageContext.count} showSizeChanger={false} current={pageContext.currentPage}/>
+        <Pagination total={pageContext.count} current={pageContext.currentPage} showSizeChanger={false}/>
       </div>
     </Layout>
   )
@@ -82,6 +105,7 @@ export const productListQuery = graphql`
               currencyCode
             }
           }
+          tags
           variants {
             id
             title
@@ -119,6 +143,7 @@ export const productListQuery = graphql`
                 currencyCode
               }
             }
+            tags
             variants {
               id
               title
