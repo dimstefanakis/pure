@@ -17,7 +17,8 @@ const Header = ({ siteTitle }) => {
 
   function handleScroll(){
     if (typeof window !== 'undefined') {
-      if(window.location.pathname.includes('/product/') || window.location.pathname.includes('/cart')){
+      // we want to match both /product and /products
+      if(window.location.pathname.includes('/product') || window.location.pathname.includes('/cart')){
         setDocked(false);
       }else{
         if(window.scrollY > 0){
@@ -31,7 +32,7 @@ const Header = ({ siteTitle }) => {
 
   useEffect(()=>{
     if (typeof window !== 'undefined') {
-      if(window.location.pathname.includes('/product/') || window.location.pathname.includes('/cart')){
+      if(window.location.pathname.includes('/product') || window.location.pathname.includes('/cart')){
         setDocked(false);
       }
       window.addEventListener('scroll', handleScroll)

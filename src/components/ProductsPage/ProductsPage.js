@@ -15,11 +15,13 @@ function ProductsPage({pageContext, data}){
   console.log(pageContext, data)
   return(
     <Layout>
-      <SmallBackgroundImage src={Image} header="Products" subheader={`
+      {/* <SmallBackgroundImage src={Image} header="Products" subheader={`
       Sed ut nunc erat. Nam at commodo urna. Suspendisse lacinia arcu interdum, laoreet tortor ac,
       tempor nunc.`}/>
-      <h1 className="image-text-splitter">Lorem ipsum dolor sit amet, consectetur.</h1>
-      <Search products={data.products.edges} collections={data.collections.edges}/>
+      <h1 className="image-text-splitter">Lorem ipsum dolor sit amet, consectetur.</h1> */}
+      <div style={{marginTop:150, width:'50%'}}>
+        <Search products={data.products.edges} collections={data.collections.edges}/>
+      </div>
       <div style={{display: 'flex'}}>
           <Filters data={data}/>
           <div className="product-list">
