@@ -6,6 +6,13 @@
   width: 100%;
 }
 
+.collection-filter-container .ant-checkbox-group{
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: baseline;
+}
+
 .collection-item-container{
   width: 50%;
   font-size: 1rem;

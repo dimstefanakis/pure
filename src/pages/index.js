@@ -34,6 +34,7 @@ export const query = graphql`
               currencyCode
             }
           }
+          tags
           variants {
             id
             title
@@ -58,6 +59,7 @@ export const query = graphql`
             availableForSale
             tags
             shopifyId
+            tags
             variants {
               id
             }

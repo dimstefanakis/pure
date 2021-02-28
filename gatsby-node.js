@@ -23,6 +23,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                 currencyCode
               }
             }
+            tags
             variants {
               id
               title
@@ -60,6 +61,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
                   currencyCode
                 }
               }
+              tags
               variants {
                 id
                 title
