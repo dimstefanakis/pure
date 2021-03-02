@@ -45,12 +45,13 @@ function ProductsPage({pageContext, data}){
       <div style={{marginTop:150, width:'50%'}}>
         <Search products={data.products.edges} collections={data.collections.edges}/>
       </div>
-      <div style={{display: 'flex'}}>
+      <div style={{display: 'flex', width:'100%'}}>
           <Filters data={data}/>
           <div className="product-list">
           {endProducts.map(product=>(
             <ProductListItem product={product.node?product.node:product}/>
           ))}
+          {endProducts==0?<h1 className="no-products">No products found</h1>:null}
         </div>
       </div>
       

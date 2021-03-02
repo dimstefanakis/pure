@@ -616,6 +616,16 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+
+@media screen and (max-width:767px){
+  html{
+    font-size: 10px;
+  }
+  .header{
+    padding: 0 30px;
+  }
+}
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;

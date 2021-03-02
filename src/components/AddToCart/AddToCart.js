@@ -5,7 +5,7 @@ function AddToCart({product}){
   const addItemToCart = useAddItemToCart();
 
   function handleAddToCart(variant){
-    addItemToCart(variant.variants[0].shopifyId, 1)
+    addItemToCart(variant.shopifyId, 1)
   }
 
   return(

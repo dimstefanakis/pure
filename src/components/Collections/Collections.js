@@ -18,7 +18,7 @@ function Collections({data}){
       {data.collections.edges.map(edge=>{
         return(
           <React.Fragment>
-            <BigBackgroundImage src={edge.node.image.src} header={edge.node.title} subheader="Handmade clothing made with love"
+            <BigBackgroundImage src={edge.node.image.src} header={edge.node.title}
               imageStyle={{objectPosition: '50% 30%'}} onClick={()=>handleCollectionClick(edge.node)}
             />
           </React.Fragment>

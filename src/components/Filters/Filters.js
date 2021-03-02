@@ -8,7 +8,7 @@ function Filters({data}){
   console.log(storeContext);
   const {collections} = data;
   return(
-    <div style={{width: '20%'}}>
+    <div style={{width: '20%', minWidth:200}}>
       <CollectionList collections={collections.edges}/>
     </div>
   )
