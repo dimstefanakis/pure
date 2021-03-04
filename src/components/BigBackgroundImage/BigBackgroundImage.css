@@ -27,7 +27,7 @@
   display: block;
   object-fit: cover;
   margin: 0px;
-  object-position: 50% 30%;
+  /* object-position: 50% 30%; */
 }
 
 .big-image-clickable{

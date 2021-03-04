@@ -20,6 +20,11 @@
   margin: 0px;
 }
 
+.product-image-container{
+  height: 100%;
+  width: 40%;
+}
+
 .product-description-container{
   display: flex;
   flex-flow: column;

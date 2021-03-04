@@ -30,7 +30,9 @@ const Header = ({siteTitle}) => {
       // we want to match both /product and /products
       if (
         window.location.pathname.includes('/product') ||
-        window.location.pathname.includes('/cart')
+        window.location.pathname.includes('/cart') ||
+        window.location.pathname.includes('/about') ||
+        window.location.pathname.includes('/contact')
       ) {
         setDocked(false);
       } else {
@@ -47,7 +49,9 @@ const Header = ({siteTitle}) => {
     if (typeof window !== 'undefined') {
       if (
         window.location.pathname.includes('/product') ||
-        window.location.pathname.includes('/cart')
+        window.location.pathname.includes('/cart') ||
+        window.location.pathname.includes('/about') ||
+        window.location.pathname.includes('/contact')
       ) {
         setDocked(false);
       }
@@ -84,8 +88,8 @@ const Header = ({siteTitle}) => {
           <Drawer onClose={onClose} visible={visible} placement="left">
             <div style={{display:'flex', flexFlow:'column'}}>
               <DrawerMenuLink to="/collections" text="Collections"/>
-              <DrawerMenuLink to="/ab" text="About" />
-              <DrawerMenuLink to="/collections" text="Contact" />
+              <DrawerMenuLink to="/about" text="About" />
+              <DrawerMenuLink to="/contact" text="Contact" />
               <DrawerMenuLink to="/cart">
                 <ShoppingOutlined />
                 <span>{lineItems.length}</span>
@@ -95,8 +99,8 @@ const Header = ({siteTitle}) => {
           {!isTabletOrMobile ? (
             <>
               <MenuLink to="/collections" text="Collections" />
-              <MenuLink to="/ab" text="About" />
-              <MenuLink to="/collections" text="Contact" />
+              <MenuLink to="/about" text="About" />
+              <MenuLink to="/contact" text="Contact" />
               <MenuLink to="/cart">
                 <ShoppingOutlined />
                 <span>{lineItems.length}</span>

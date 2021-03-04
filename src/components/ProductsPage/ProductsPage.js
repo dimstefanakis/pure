@@ -2,8 +2,8 @@ import React, {useContext, useEffect, useState} from 'react';
 import { graphql } from 'gatsby';
 import { navigate } from "@reach/router"  
 import Pagination from 'antd/es/pagination';
+import {useMediaQuery} from 'react-responsive';
 import Layout from '../layout';
-import Image from '../../images/bottom.jpg';
 import BigBackgroundImage from '../BigBackgroundImage/BigBackgroundImage';
 import SmallBackgroundImage from '../SmallBackgroundImage/SmallBackgroundImage';
 import ActionButton from '../ActionButton/ActionButton';
@@ -13,13 +13,12 @@ import {StoreContext} from '../../contexts/StoreContext';
 import './productsPage.css';
 
 function ProductsPage({pageContext, data}){
+  const isTabletOrMobile = useMediaQuery({query: '(max-width: 767px)'});
   const [endProducts, setEndProducts] = useState(data.products.edges)
   const storeContext = useContext(StoreContext);
-  console.log(pageContext, data, storeContext, "asda")
 
   useEffect(()=>{
     setEndProducts(oldProducts=>{
-      console.log(storeContext.filteredCollection,"asdsadsadsad")
       let filterSet = storeContext.filteredCollection?
         data.collections.edges.find(c=>c.node.title==storeContext.filteredCollection).node.products:
         oldProducts
@@ -35,15 +34,15 @@ function ProductsPage({pageContext, data}){
     })
   },[storeContext])
 
-  console.log(endProducts, "endproducts")
   return(
     <Layout>
       {/* <SmallBackgroundImage src={Image} header="Products" subheader={`
       Sed ut nunc erat. Nam at commodo urna. Suspendisse lacinia arcu interdum, laoreet tortor ac,
       tempor nunc.`}/>
       <h1 className="image-text-splitter">Lorem ipsum dolor sit amet, consectetur.</h1> */}
-      <div style={{marginTop:150, width:'50%'}}>
+      <div className="search-container">
         <Search products={data.products.edges} collections={data.collections.edges}/>
+        {isTabletOrMobile?<FilterButton/>:null}
       </div>
       <div style={{display: 'flex', width:'100%'}}>
           <Filters data={data}/>
@@ -59,6 +58,12 @@ function ProductsPage({pageContext, data}){
         <Pagination total={pageContext.count} current={pageContext.currentPage} showSizeChanger={false}/>
       </div>
     </Layout>
+  )
+}
+
+function FilterButton(){
+  return(
+    <button className="filter-button">Filter</button>
   )
 }
 

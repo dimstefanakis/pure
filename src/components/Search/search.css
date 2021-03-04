@@ -1,6 +1,11 @@
 .ant-input-group .ant-input{
   border: 1px solid transparent;
 }
+.search-container{
+  width: 50%;
+  margin-top: 150px;
+  display: flex;
+}
 
 .search-result-image{
   height: 80%;
@@ -24,4 +29,11 @@
 
 .search-input .ant-input-group-addon{
   display: none;
+}
+
+@media all and (max-width: 767px){
+  .search-container{
+    margin-top: 100px;
+    width: 80%;
+  }
 }

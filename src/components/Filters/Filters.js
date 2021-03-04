@@ -5,10 +5,10 @@ import './filters.css';
 
 function Filters({data}){
   const storeContext = useContext(StoreContext);
-  console.log(storeContext);
   const {collections} = data;
+
   return(
-    <div style={{width: '20%', minWidth:200}}>
+    <div className="filters-container">
       <CollectionList collections={collections.edges}/>
     </div>
   )

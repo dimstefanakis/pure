@@ -1,3 +1,8 @@
+.filters-container{
+  width: 20%;
+  min-width: 200px;
+}
+
 .collection-filter-container{
   display: flex;
   flex-flow: column;
@@ -17,4 +22,10 @@
   width: 50%;
   font-size: 1rem;
   cursor: pointer;
+}
+
+@media all and (max-width: 767px){
+  .filters-container{
+    display: none;
+  }
 }
