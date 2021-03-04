@@ -13,11 +13,13 @@
   font-size: 6rem;
   letter-spacing: 10px;
   word-break: break-all;
+  max-width: 80vw;
 }
 
 .secondary-title{
   font-size: 2rem;
   word-break: break-all;
+  max-width: 80vw;
 }
 
 .big-image{

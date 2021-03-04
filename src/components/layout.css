@@ -619,7 +619,7 @@ pre tt:after {
 
 @media screen and (max-width:767px){
   html{
-    font-size: 10px;
+    font-size: 12px;
   }
   .header{
     padding: 0 30px;
@@ -628,7 +628,7 @@ pre tt:after {
 
 @media only screen and (max-width: 480px) {
   html {
-    font-size: 100%;
+    /* font-size: 100%; */
   }
 }
 

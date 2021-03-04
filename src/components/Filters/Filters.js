@@ -63,8 +63,8 @@ function AdvancedFilters(){
   },[])
 
   return(
-    <div style={{marginTop:100, width:'50%'}}>
-      <h3>Categories</h3>
+    <div className="options-container">
+      <h3 className="categories-title">Categories</h3>
       <Checkbox.Group options={options} defaultValue={options.map(o=>o.value)} onChange={onChange} />
     </div>
   )

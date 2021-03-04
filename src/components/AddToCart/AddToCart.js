@@ -1,10 +1,11 @@
 import React from 'react';
 import { useAddItemToCart } from "../../contexts/CartContext";
 
-function AddToCart({product}){
+function AddToCart({product, onAddToCart=()=>{}}){
   const addItemToCart = useAddItemToCart();
 
   function handleAddToCart(variant){
+    onAddToCart(product);
     addItemToCart(variant.shopifyId, 1)
   }
 

@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { graphql } from 'gatsby';
-import { navigate } from "@reach/router"  
+import {Drawer} from 'antd';
+import { navigate } from "gatsby"  
 import Pagination from 'antd/es/pagination';
 import {useMediaQuery} from 'react-responsive';
 import Layout from '../layout';
@@ -42,10 +43,10 @@ function ProductsPage({pageContext, data}){
       <h1 className="image-text-splitter">Lorem ipsum dolor sit amet, consectetur.</h1> */}
       <div className="search-container">
         <Search products={data.products.edges} collections={data.collections.edges}/>
-        {isTabletOrMobile?<FilterButton/>:null}
+        {isTabletOrMobile?<FilterButton data={data}/>:null}
       </div>
       <div style={{display: 'flex', width:'100%'}}>
-          <Filters data={data}/>
+          {isTabletOrMobile?null:<Filters data={data}/>}
           <div className="product-list">
           {endProducts.map(product=>(
             <ProductListItem product={product.node?product.node:product}/>
@@ -61,9 +62,27 @@ function ProductsPage({pageContext, data}){
   )
 }
 
-function FilterButton(){
+function FilterButton({data}){
+  const [showDrawer, setShowDrawer] = useState(false);
+
+  function onClose(){
+    setShowDrawer(false);
+  }
+
+
   return(
-    <button className="filter-button">Filter</button>
+    <>
+    <button className="filter-button" onClick={()=>setShowDrawer(true)}>Filter</button>
+    <Drawer
+      title="Filters"
+      placement="right"
+      closable={false}
+      onClose={onClose}
+      visible={showDrawer}
+    >
+      <Filters data={data}/>
+    </Drawer>
+    </>
   )
 }
 

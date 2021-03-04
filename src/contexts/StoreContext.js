@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { navigate } from "@reach/router"
 const isBrowser = typeof window !== 'undefined'
-
 
 const defaultStoreContext = {
   filteredCollection: 'Summer',

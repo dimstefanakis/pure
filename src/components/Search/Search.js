@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { navigate } from "@reach/router"  
+import { navigate } from "gatsby"  
 import Input from 'antd/es/input';
 import AutoComplete from 'antd/es/auto-complete';
 import './search.css';
