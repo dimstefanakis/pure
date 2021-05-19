@@ -21,7 +21,16 @@
 }
 
 .collection-filter-container .ant-checkbox-group-item:last-child {
-  margin-right: 8px;
+  /* margin-right: 8px; */
+  margin-right: 0;
+}
+
+.collection-filter-container .ant-checkbox-group-item {
+  margin-right: 0;
+}
+
+.collection-filter-container .ant-checkbox + span{
+  padding-right: 0;
 }
 
 .collection-item-container{

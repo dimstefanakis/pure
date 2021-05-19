@@ -10,10 +10,10 @@ function Home({data}){
   console.log(data);
   return(
     <>
-      <BigBackgroundImage src={Image} header="Pure designs" subheader="Handmade clothing made with love"
+      <BigBackgroundImage src={Image} header="Pure the brand" subheader="Sustainable and handmade clothing"
         // imageStyle={{objectPosition: '50% 30%'}}
       />
-      <h1 className="image-text-splitter">Lorem ipsum dolor sit amet, consectetur.</h1>
+      <h1 className="image-text-splitter">NEW ARRIVALS</h1>
       {/* <SmallBackgroundImage src={Image} header="Lorem ipsum" subheader={`
       Sed ut nunc erat. Nam at commodo urna. Suspendisse lacinia arcu interdum, laoreet tortor ac,
       tempor nunc.`}/>

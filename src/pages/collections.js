@@ -25,6 +25,10 @@ export const query = graphql`
             shopifyId
             variants {
               id
+              selectedOptions {
+                name
+                value
+              }
             }
           }
           title

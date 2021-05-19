@@ -20,13 +20,19 @@ function ProductsPage({pageContext, data}){
 
   useEffect(()=>{
     setEndProducts(oldProducts=>{
+      console.log("edges", data.collections.edges, storeContext.filteredCollection)
       let filterSet = storeContext.filteredCollection?
         data.collections.edges.find(c=>c.node.title==storeContext.filteredCollection).node.products:
-        oldProducts
+        data.products.edges.map(p=>p.node)
 
+      console.log("filterSet", filterSet, storeContext.filteredCollection, data.products.edges)
       filterSet = filterSet.filter(f=>{
         console.log(f.tags)
         if(f.tags.some(tag=>storeContext.filteredTags.includes(tag))){
+          return true;
+        }
+
+        if(storeContext.filteredTags.includes(f.productType)){
           return true;
         }
       })
@@ -97,7 +103,7 @@ function ProductListItem({product}){
     <div className="product-item" onClick={handleClick}>
       <img src={product.images[0].originalSrc} className="best-product-image" />
       <div style={{display:'flex', flexFlow:'column'}}>
-        <h1 className="best-product-handle">{product.handle}</h1>
+        <h1 className="best-product-handle">{product.title}</h1>
         <p style={{marginBottom: 0}} className="best-product-price cool-font">€{product.priceRange.minVariantPrice.amount}</p>
         <span style={{color: product.availableForSale? '#4caf50': 'gray'}}>{product.availableForSale?'In stock': 'Out of stock'}</span>
         <ActionButton product={product} title="Purchace now"/>
@@ -126,6 +132,8 @@ export const productListQuery = graphql`
           handle
           shopifyId
           descriptionHtml
+          productType
+          createdAt
           priceRange {
             minVariantPrice {
               amount
@@ -136,6 +144,10 @@ export const productListQuery = graphql`
           variants {
             id
             title
+            selectedOptions {
+              name
+              value
+            }
             availableForSale
             priceV2 {
               amount
@@ -164,6 +176,8 @@ export const productListQuery = graphql`
             handle
             shopifyId
             descriptionHtml
+            productType
+            createdAt
             priceRange {
               minVariantPrice {
                 amount
@@ -174,6 +188,10 @@ export const productListQuery = graphql`
             variants {
               id
               title
+              selectedOptions {
+                name
+                value
+              }
               availableForSale
               priceV2 {
                 amount

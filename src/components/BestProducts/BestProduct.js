@@ -8,7 +8,7 @@ function BestProduct({product}){
     <div className="best-product">
       <img src={product.images[0].originalSrc} className="best-product-image" />
       <div>
-        <h1 className="best-product-handle">{product.handle}</h1>
+        <h1 className="best-product-handle">{product.title}</h1>
         {/*<p className="best-product-price cool-font">€{product.priceRange.minVariantPrice.amount}</p>*/}
         <ActionButton product={product}/>
       </div>

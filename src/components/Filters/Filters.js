@@ -17,7 +17,15 @@ function Filters({data}){
 function CollectionList({collections}){
   const storeContext = useContext(StoreContext);
 
-  console.log(storeContext);
+  console.log('collections', collections);
+  let options = []
+  collections.forEach(collection=>{
+    collection.node.products.forEach(product=>{
+      if(!options.find(o=>o.label==product.productType)){
+        options.push({label: product.productType, value: product.productType })
+      }
+    })
+  })
   function handleCollectionSelect(collection){
     storeContext.updateFilterCollection(collection.node.title);
   }
@@ -32,25 +40,12 @@ function CollectionList({collections}){
           </div>
         )
       })}
-      <AdvancedFilters />
+      <AdvancedFilters options={options}/>
     </div>
   )
 }
 
-const options = [
-  { label: 'Tops', value: 'Tops' },
-  { label: 'Trousers', value: 'Trousers' },
-  { label: 'Shirts', value: 'Shirts' },
-  { label: 'Coats', value: 'Coats' },
-  { label: 'Dresses', value: 'Dresses' },
-  { label: 'Jumpsuits', value: 'Jumpsuits' },
-  { label: 'Hats', value: 'Hats' },
-  { label: 'Shorts', value: 'Shorts' },
-  { label: 'Skirts', value: 'ShiSkirtsrts' },
-  { label: 'Playsuits', value: 'Playsuits' },
-];
-
-function AdvancedFilters(){
+function AdvancedFilters({options}){
   const storeContext = useContext(StoreContext);
 
   function onChange(checkedValues){

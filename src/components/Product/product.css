@@ -26,6 +26,16 @@
   width: 50%;
   flex: 1;
   margin-left: 100px;
+  margin-right: 50px;
+}
+
+.product-images{
+  display: flex;
+  flex-flow: column;
+}
+
+.ant-image{
+  height: 100%;
 }
 
 @media all and (max-width: 767px){
@@ -43,6 +53,25 @@
   .product-description-container{
     width: 100%;
     margin-left: 0;
+    margin-right: 0;
     padding: 30px;
+  }
+
+  .product-images{
+    flex-flow: row;
+    max-height: 100px;
+    width: 100%;
+    overflow-x: auto;
+    justify-content: center;
+  }
+
+  .product-images-container{
+    height: 100px;
+    max-height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
   }
 }

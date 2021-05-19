@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react';
 import SizeTag from '../SizeTag/SizeTag';
 import './sizeTagList.css';
 
-function SizeTagList({selected, setSelected, variants}){
+function SizeTagList({selected, setSelected, variants, sizes}){
   return(
     <div className="size-tag-list">
-      {variants.map(variant=>(
-        <SizeTag size={variant} selected={selected} setSelected={setSelected}/>
+      {sizes.map(size=>(
+        <SizeTag size={size} selected={selected} setSelected={setSelected}/>
       ))}
     </div>
   )

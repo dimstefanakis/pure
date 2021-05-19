@@ -27,8 +27,9 @@
 .product-list{
   display: flex;
   flex-flow: row wrap;
-  /* justify-content: space-around; */
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: baseline;
+  /* justify-content: space-between; */
   width: 70%;
   flex-grow: 1;
 }

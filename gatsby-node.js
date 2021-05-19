@@ -17,6 +17,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             handle
             shopifyId
             descriptionHtml
+            productType
+            createdAt
             priceRange {
               minVariantPrice {
                 amount
@@ -27,16 +29,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             variants {
               id
               title
+              selectedOptions {
+                name
+                value
+              }
               availableForSale
               priceV2 {
                 amount
                 currencyCode
               }
               shopifyId
-              selectedOptions {
-                name
-                value
-              }
             }
           }
         }
@@ -55,6 +57,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               handle
               shopifyId
               descriptionHtml
+              productType
+              createdAt
               priceRange {
                 minVariantPrice {
                   amount
@@ -65,6 +69,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               variants {
                 id
                 title
+                selectedOptions {
+                  name
+                  value
+                }
                 availableForSale
                 priceV2 {
                   amount

@@ -28,6 +28,8 @@ export const query = graphql`
           handle
           shopifyId
           descriptionHtml
+          productType
+          createdAt
           priceRange {
             minVariantPrice {
               amount
@@ -38,6 +40,10 @@ export const query = graphql`
           variants {
             id
             title
+            selectedOptions {
+              name
+              value
+            }
             availableForSale
             priceV2 {
               amount
@@ -62,6 +68,10 @@ export const query = graphql`
             tags
             variants {
               id
+              selectedOptions {
+                name
+                value
+              }
             }
           }
           title

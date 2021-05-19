@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 const isBrowser = typeof window !== 'undefined'
 
 const defaultStoreContext = {
-  filteredCollection: 'Summer',
+  filteredCollection: null,
   filteredTags: [],
   updateFilterTags: () => [],
   updateFilterCollection: () => {},

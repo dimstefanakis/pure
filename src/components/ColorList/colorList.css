@@ -1,0 +1,26 @@
+.color-list{
+  display: flex;
+  flex-flow: row;
+}
+
+.color-list-item{
+  margin: 5px;
+  margin-left: 0px;
+  margin-right: 10px;
+  padding: 8px;
+  color: black;
+  border-radius: 100%;
+  box-sizing: border-box;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.color-list-item-selected{
+  background-color: #1d1d1d;
+  border: 2px solid #1d1d1d;
+}
