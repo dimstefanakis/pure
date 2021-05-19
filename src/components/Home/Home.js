@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../Icons/Logo';
-import Image from '../../images/bottom.png';
+import image from '../../images/bottom.png';
 import BigBackgroundImage from '../BigBackgroundImage/BigBackgroundImage';
 import SmallBackgroundImage from '../SmallBackgroundImage/SmallBackgroundImage';
 import BestProducts from '../BestProducts/BestProducts';
@@ -10,7 +10,7 @@ function Home({data}){
   console.log(data);
   return(
     <>
-      <BigBackgroundImage src={Image} header="Pure the brand" subheader="Sustainable and handmade clothing"
+      <BigBackgroundImage src={image} header="Pure the brand" subheader="Sustainable and handmade clothing"
         // imageStyle={{objectPosition: '50% 30%'}}
       />
       <h1 className="image-text-splitter">NEW ARRIVALS</h1>
