@@ -3,7 +3,6 @@ import {navigate} from 'gatsby';
 import {Image as AntdImage} from 'antd';
 import {toast} from 'react-toastify';
 import Layout from '../layout';
-import Image from '../../images/bottom.jpg';
 import BigBackgroundImage from '../BigBackgroundImage/BigBackgroundImage';
 import SmallBackgroundImage from '../SmallBackgroundImage/SmallBackgroundImage';
 import SizeTagList from '../SizeTagList/SizeTagList';

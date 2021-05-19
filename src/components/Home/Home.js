@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../Icons/Logo';
-import Image from '../../images/bottom.jpg';
+import Image from '../../images/bottom.png';
 import BigBackgroundImage from '../BigBackgroundImage/BigBackgroundImage';
 import SmallBackgroundImage from '../SmallBackgroundImage/SmallBackgroundImage';
 import BestProducts from '../BestProducts/BestProducts';
