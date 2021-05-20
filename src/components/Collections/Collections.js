@@ -17,11 +17,11 @@ function Collections({data}){
     <>
       {data.collections.edges.map(edge=>{
         return(
-          <React.Fragment>
+          <div role="link" data-ref='/products'>
             <BigBackgroundImage src={edge.node.image.src} header={edge.node.title}
               imageStyle={{objectPosition: '50% 30%'}} onClick={()=>handleCollectionClick(edge.node)}
             />
-          </React.Fragment>
+          </div>
         )
       })}
     </>
