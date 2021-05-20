@@ -17,7 +17,6 @@ function Filters({data}){
 function CollectionList({collections}){
   const storeContext = useContext(StoreContext);
 
-  console.log('collections', collections);
   let options = []
   collections.forEach(collection=>{
     collection.node.products.forEach(product=>{
@@ -51,11 +50,6 @@ function AdvancedFilters({options}){
   function onChange(checkedValues){
     storeContext.updateFilterTags(checkedValues);
   }
-
-  useEffect(()=>{
-    // add all the tags on mount
-    storeContext.updateFilterTags(options.map(o=>o.value));
-  },[])
 
   return(
     <div className="options-container">

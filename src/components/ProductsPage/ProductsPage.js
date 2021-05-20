@@ -19,15 +19,25 @@ function ProductsPage({pageContext, data}){
   const storeContext = useContext(StoreContext);
 
   useEffect(()=>{
+    let options = []
+    data.collections.edges.forEach(collection=>{
+      collection.node.products.forEach(product=>{
+        if(!options.find(o=>o.label==product.productType)){
+          options.push({label: product.productType, value: product.productType })
+        }
+      })
+    })
+    // add all the tags on mount
+    storeContext.updateFilterTags(options.map(o=>o.value));
+  },[])
+
+  useEffect(()=>{
     setEndProducts(oldProducts=>{
-      console.log("edges", data.collections.edges, storeContext.filteredCollection)
       let filterSet = storeContext.filteredCollection?
         data.collections.edges.find(c=>c.node.title==storeContext.filteredCollection).node.products:
         data.products.edges.map(p=>p.node)
 
-      console.log("filterSet", filterSet, storeContext.filteredCollection, data.products.edges)
-      filterSet = filterSet.filter(f=>{
-        console.log(f.tags)
+      filterSet = filterSet.filter((f, i)=>{
         if(f.tags.some(tag=>storeContext.filteredTags.includes(tag))){
           return true;
         }
@@ -41,6 +51,7 @@ function ProductsPage({pageContext, data}){
     })
   },[storeContext])
 
+  console.log("endProducts", endProducts)
   return(
     <Layout>
       {/* <SmallBackgroundImage src={Image} header="Products" subheader={`
@@ -54,16 +65,18 @@ function ProductsPage({pageContext, data}){
       <div style={{display: 'flex', width:'100%'}}>
           {isTabletOrMobile?null:<Filters data={data}/>}
           <div className="product-list">
-          {endProducts.map(product=>(
-            <ProductListItem product={product.node?product.node:product}/>
-          ))}
+          {endProducts.map(product=>{
+            return(
+              <ProductListItem key={product.node?product.node.handle:product.handle} product={product.node?product.node:product}/>
+            )
+          })}
           {endProducts==0?<h1 className="no-products">No products found</h1>:null}
         </div>
       </div>
       
-      <div style={{marginTop: 40}}>
+      {/* <div style={{marginTop: 40}}>
         <Pagination total={pageContext.count} current={pageContext.currentPage} showSizeChanger={false}/>
-      </div>
+      </div> */}
     </Layout>
   )
 }
@@ -74,7 +87,6 @@ function FilterButton({data}){
   function onClose(){
     setShowDrawer(false);
   }
-
 
   return(
     <>
@@ -115,11 +127,9 @@ function ProductListItem({product}){
 export default ProductsPage;
 
 export const productListQuery = graphql`
-  query productListQuery($skip: Int!, $limit: Int!) {
+  query productListQuery {
     products: allShopifyProduct(
       sort: { fields: [priceRange___maxVariantPrice___amount], order: DESC }
-      limit: $limit
-      skip: $skip
     ) {
       edges {
         node {

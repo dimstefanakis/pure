@@ -10,7 +10,7 @@ function Home({data}){
   console.log(data);
   return(
     <>
-      <BigBackgroundImage src={image} header="Pure the brand" subheader="Sustainable and handmade clothing"
+      <BigBackgroundImage src={image} header="Pure The Brand" subheader="Sustainable and handmade clothing"
         // imageStyle={{objectPosition: '50% 30%'}}
       />
       <h1 className="image-text-splitter">NEW ARRIVALS</h1>

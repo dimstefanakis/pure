@@ -115,20 +115,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-  const posts = result.data.allShopifyProduct.totalCount
-  const postsPerPage = 15
-  const numPages = Math.ceil(posts / postsPerPage)
-  Array.from({ length: numPages }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/products` : `/products/${i + 1}`,
-      component: path.resolve("./src/components/ProductsPage/ProductsPage.js"),
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        count: posts,
-        numPages,
-        currentPage: i + 1,
-      },
-    })
+  // const posts = result.data.allShopifyProduct.totalCount
+  // const postsPerPage = 15
+  // const numPages = Math.ceil(posts / postsPerPage)
+  // Array.from({ length: numPages }).forEach((_, i) => {
+  //   createPage({
+  //     path: i === 0 ? `/products` : `/products/${i + 1}`,
+  //     component: path.resolve("./src/components/ProductsPage/ProductsPage.js"),
+  //     context: {
+  //       limit: postsPerPage,
+  //       skip: i * postsPerPage,
+  //       count: posts,
+  //       numPages,
+  //       currentPage: i + 1,
+  //     },
+  //   })
+  // })
+
+  createPage({
+    path: `/products`,
+    component: path.resolve("./src/components/ProductsPage/ProductsPage.js"),
   })
 }
