@@ -2,7 +2,7 @@ const path = require(`path`)
 require("dotenv").config({
   path: `.env`,
 })
-
+//UA-146933923-2
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -54,6 +54,26 @@ module.exports = {
         includeCollections: ["shop", "content"],
       },
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "UA-146933923-2", // Google Analytics / GA
+          "G-1HJCJ5DDNL" // Google Ads / Adwords / AW
+        ],
+        pluginConfig: {
+          head: true        
+        },
+      }
+    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: "UA-146933923-2",
+    //     head: true,
+    //     anonymize: true,
+    //   },
+    // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
