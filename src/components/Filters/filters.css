@@ -24,9 +24,12 @@
   /* margin-right: 8px; */
   margin-right: 0;
 }
-
 .collection-filter-container .ant-checkbox-group-item {
   margin-right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .collection-filter-container .ant-checkbox + span{
