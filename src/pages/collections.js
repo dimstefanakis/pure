@@ -1,4 +1,5 @@
 import React from "react"
+import {Helmet} from "react-helmet";
 import { Link } from "gatsby"
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
@@ -8,6 +9,12 @@ import Collections from '../components/Collections/Collections';
 
 const CollectionsPage = ({data}) => (
   <Layout>
+      <Helmet>
+        <title>Pure - Collections</title>
+        <meta name="description" content="Collections" />
+        <link rel="canonical" href="https://www.purethebrand.gr/collections" />
+      </Helmet>
+
     <Collections data={data}/>
   </Layout>
 )

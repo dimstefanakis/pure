@@ -1,9 +1,16 @@
 import React from 'react';
+import {Helmet} from "react-helmet";
 import Layout from '../components/layout';
 
 function About() {
   return (
     <Layout>
+      <Helmet>
+        <title>Pure - About</title>
+        <meta name="description" content="About" />
+        <link rel="canonical" href="https://www.purethebrand.gr/about" />
+      </Helmet>
+
       <div
         style={{marginTop: 150, maxWidth: 600, padding: 30}}
         className="cool-font">

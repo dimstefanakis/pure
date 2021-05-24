@@ -1,5 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { graphql } from 'gatsby';
+import {Helmet} from "react-helmet";
 import {Drawer} from 'antd';
 import { navigate } from "gatsby"  
 import Pagination from 'antd/es/pagination';
@@ -54,6 +55,11 @@ function ProductsPage({pageContext, data}){
   console.log("endProducts", endProducts)
   return(
     <Layout>
+      <Helmet>
+        <title>Pure - Products</title>
+        <meta name="description" content="Browse all of our products" />
+        <link rel="canonical" href="https://www.purethebrand.gr/products" />
+      </Helmet>
       {/* <SmallBackgroundImage src={Image} header="Products" subheader={`
       Sed ut nunc erat. Nam at commodo urna. Suspendisse lacinia arcu interdum, laoreet tortor ac,
       tempor nunc.`}/>

@@ -33,7 +33,7 @@ const Cart = () => {
       <Helmet>
         <title>Pure - Cart</title>
         <meta name="description" content="Checkout" />
-        <link rel="canonical" href="https://pure.gr/cart" />
+        <link rel="canonical" href="https://www.purethebrand.gr/cart" />
       </Helmet>
       <div style={{
         width: '100%', display: 'flex', justifyContent: 'center', marginTop: 200,

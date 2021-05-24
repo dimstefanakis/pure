@@ -1,4 +1,5 @@
 import React from "react"
+import {Helmet} from "react-helmet";
 import { Link } from "gatsby"
 import { graphql } from 'gatsby'
 import Layout from "../components/layout"
@@ -8,6 +9,11 @@ import Home from '../components/Home/Home';
 
 const IndexPage = ({data}) => (
   <Layout>
+    <Helmet>
+        <title>Pure</title>
+        <meta name="description" content="Pure The Brand - Sustainable and handmade clothing" />
+        <link rel="canonical" href="https://www.purethebrand.gr" />
+      </Helmet>
     <Home data={data}/>
   </Layout>
 )

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {navigate} from 'gatsby';
+import {Helmet} from "react-helmet";
 import {Image as AntdImage} from 'antd';
 import {toast} from 'react-toastify';
 import Layout from '../layout';
@@ -81,6 +82,11 @@ function Product({pageContext}) {
   
   return (
     <Layout>
+      <Helmet>
+        <title>{`Pure - ${product.title}`}</title>
+        <meta name="description" content={`Pure - ${product.title}`} />
+        <link rel="canonical" href={`https://www.purethebrand.gr/product/${product.handle}`} />
+      </Helmet>
       <div style={{width: '100%'}}>
         {/*<SmallBackgroundImage src={Image} header={product.handle}/>*/}
         <div className="product-container">
