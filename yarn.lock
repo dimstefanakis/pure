@@ -9220,6 +9220,11 @@ loglevel@^1.6.8:
   resolved "https://registry.npmjs.org/loglevel/-/loglevel-1.7.1.tgz"
   integrity sha512-Hesni4s5UkWkwCGJMQGAh71PaLUmKFM60dHvq0zi/vDhhrzuk+4GgNbTXJ12YYQJn6ZKBDNIjYcuQGKudvqrIw==
 
+logrocket@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/logrocket/-/logrocket-1.2.1.tgz#a46d017802d609991bcdf8d0346bbd582d1c2181"
+  integrity sha512-Tkl5OF3Bvt04k3P2SBKrDXFldm4bFeCEAkg+m1oyaZT31wHlcuch1xXU57at77ptRIXtehROPJw3R0fvTviRhw==
+
 longest-streak@^2.0.1:
   version "2.0.4"
   resolved "https://registry.npmjs.org/longest-streak/-/longest-streak-2.0.4.tgz"

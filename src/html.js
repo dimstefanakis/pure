@@ -1,5 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
+import LogRocket from 'logrocket';
+LogRocket.init('troosh/pure');
 
 export default function HTML(props) {
   return (
