@@ -41,6 +41,7 @@ function Product({pageContext}) {
   const [sizeSelected, setSelectedSize] = useState(product.variants[0].selectedOptions.find(o=>o.name=='Size').value)
   const [colorSelected, setColorSelected] = useState(product.variants[0].selectedOptions.find(o=>o.name=='Color')?.value);
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
+  const [variantInStock, setVariantInStock] = useState(true);
 
   function handleAddToCart(variant) {
     toast(<AddNotification product={product} />, {
@@ -121,7 +122,9 @@ function Product({pageContext}) {
               selected={selected}
               setSelected={setColorSelected}
             />
+            {!selected.availableForSale && <OutOfStock/>}
             <AddToCart
+              disabled={!selected.availableForSale}
               product={selected}
               onAddToCart={handleAddToCart}
               title="Add to cart"
@@ -131,6 +134,14 @@ function Product({pageContext}) {
       </div>
     </Layout>
   );
+}
+
+function OutOfStock(){
+  return(
+    <div className="out-of-stock">
+      Out of stock
+    </div>
+  )
 }
 
 function AddNotification({product}) {
