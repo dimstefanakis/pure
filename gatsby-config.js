@@ -46,14 +46,16 @@ module.exports = {
       resolve: `gatsby-source-shopify`,
       options: {
         // The domain name of your Shopify shop.
-        shopName: 'purestoredev.myshopify.com',
+        storeUrl: 'purestoredev.myshopify.com',
         // The storefront access token
-        accessToken: '72b511a5543176d05066d6b2d18d5e76',
+        apiKey: '2a8ebb2cc28c96200399baa4752ddd37',
+        password: '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',
         apiVersion: "2021-04",
         verbose: true,
-        includeCollections: ["shop", "content"],
+        shopifyConnections: ["orders", "collections"],
       },
     },
+    "gatsby-plugin-image",
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
