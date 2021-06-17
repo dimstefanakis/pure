@@ -46,7 +46,7 @@ module.exports = {
       resolve: `gatsby-source-shopify`,
       options: {
         // The domain name of your Shopify shop.
-        shopName: 'purestoredev.myshopify.com',
+        shopName: 'shop.purethebrand.gr',
         // The storefront access token
         accessToken: '72b511a5543176d05066d6b2d18d5e76',
         apiVersion: "2021-04",

@@ -19,6 +19,7 @@
     "gatsby-plugin-react-helmet": "^3.3.6",
     "gatsby-plugin-sharp": "^2.6.14",
     "gatsby-source-filesystem": "^2.3.14",
+    "gatsby-source-graphql": "^3.7.1",
     "gatsby-source-shopify": "^3.9.0",
     "gatsby-transformer-sharp": "^2.5.7",
     "logrocket": "^1.2.1",
