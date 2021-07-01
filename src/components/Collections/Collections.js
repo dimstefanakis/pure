@@ -5,7 +5,6 @@ import BigBackgroundImage from '../BigBackgroundImage/BigBackgroundImage';
 import SmallBackgroundImage from '../SmallBackgroundImage/SmallBackgroundImage';
 
 function Collections({data}){
-  console.log(data);
   const storeContext = useContext(StoreContext);
 
   function handleCollectionClick(collection){

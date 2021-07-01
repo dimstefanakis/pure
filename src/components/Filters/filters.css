@@ -36,6 +36,10 @@
   padding-right: 0;
 }
 
+.collection-filter-container .ant-checkbox{
+  flex: 1;
+}
+
 .collection-item-container{
   width: 50%;
   font-size: 1rem;

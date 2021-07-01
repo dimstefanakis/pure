@@ -3,7 +3,6 @@ import BestProduct from './BestProduct';
 import './bestProducts.css';
 
 function BestProducts({data}){
-  console.log(data);
   return(
     <div className="best-products-container">
       {data.products.edges.filter(edge=>edge.node.tags.includes('display'))

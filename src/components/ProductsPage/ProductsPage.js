@@ -52,7 +52,6 @@ function ProductsPage({pageContext, data}){
     })
   },[storeContext])
 
-  console.log("endProducts", endProducts)
   return(
     <Layout>
       <Helmet>
@@ -111,7 +110,6 @@ function FilterButton({data}){
 }
 
 function ProductListItem({product}){
-  console.log(product)
 
   function handleClick(){
     navigate(`/product/${product.handle}`)

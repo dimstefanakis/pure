@@ -7,7 +7,6 @@ import BestProducts from '../BestProducts/BestProducts';
 import './home.css';
 
 function Home({data}){
-  console.log(data);
   return(
     <>
       <BigBackgroundImage src={image} header="Pure The Brand" subheader="Sustainable and handmade clothing"

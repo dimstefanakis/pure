@@ -63,7 +63,6 @@ function Product({pageContext}) {
     }
   })
 
-  console.log("size", sizeSelected);
   let colors = []
   product.variants.filter(v=>v.selectedOptions.find(o=>o.value==sizeSelected)).forEach(variant=>{
     let colorOption = variant.selectedOptions.find(o=>o.name=='Color')
@@ -71,7 +70,6 @@ function Product({pageContext}) {
       colors.push(colorOption.value)
     }
   })
-  console.log("sizes", sizes, selected)
 
   useEffect(()=>{
     let options = [colorSelected, sizeSelected]
