@@ -6,7 +6,6 @@ import './search.css';
 
 function Search({products}){
   const [options, setOptions] = useState([]);
-  console.log(products);
 
   function handleResultClick(handle){
     navigate(`/product/${handle}`)
@@ -43,7 +42,6 @@ function Search({products}){
   };
 
   const onSelect = (value) => {
-    console.log('onSelect', value);
     handleResultClick(value);
   };
   return(

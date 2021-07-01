@@ -15,7 +15,6 @@ function createNewCheckout(cart) {
 }
 
 function fetchCheckout(client, id) {
-  console.log(client);
   return client.checkout.fetch(id)
 }
 
@@ -39,17 +38,11 @@ const CartContextProvider = ({ children }) => {
       const existingCheckoutId = isBrowser
         ? localStorage.getItem(SHOPIFY_CHECKOUT_STORAGE_KEY)
         : null
-      console.log(existingCheckoutId);
       if (existingCheckoutId) {
         try {
-          console.log("in");  
           const checkout = await fetchCheckout(client, existingCheckoutId)
-          console.log(checkout);  
           if (!checkout.completedAt) {
-            console.log("Checkout fetched from Shopify with id", checkout.id)
-            console.log("Checkout contains", checkout.lineItems)
             if (checkout) {
-              console.log("Updating checkout in browser")
               dispatch({ type: "UPDATE_CHECKOUT", checkout })
             }
             return {
@@ -67,7 +60,6 @@ const CartContextProvider = ({ children }) => {
       }
       const newCheckout = await createNewCheckout(client)
       localStorage.setItem(SHOPIFY_CHECKOUT_STORAGE_KEY, newCheckout.id)
-      console.log("The new checkout id stored is", newCheckout.dispatch)
       return {
         client,
         newCheckout,
@@ -88,29 +80,24 @@ const CartContextProvider = ({ children }) => {
 function useAddItemToCart() {
   const { dispatch } = useContext(CartContext)
 
-  console.log(process.env.GATSBY_SHOP_NAME)
 
   async function addItemToCart(variantId, quantity) {
-    console.log("in",variantId, quantity)
     if (variantId === "" || !quantity) {
       console.error("Both a size and quantity are required.")
       return
     }
-    console.log(process.env.GATSBY_SHOP_NAME)
     const isBrowser = typeof window !== "undefined"
     const checkoutId = isBrowser
       ? localStorage.getItem(SHOPIFY_CHECKOUT_STORAGE_KEY)
       : null
     const lineItemsToAdd = [{ variantId, quantity: parseInt(quantity, 10) }]
 
-    console.log(checkoutId, lineItemsToAdd)
     try{
       const newCheckout = await client.checkout.addLineItems(
         checkoutId,
         lineItemsToAdd
       )
   
-      console.log(newCheckout)
       dispatch({ type: "UPDATE_CHECKOUT", checkout: newCheckout })
     }catch(e){
       console.log(e)
@@ -125,7 +112,6 @@ function useGoToCheckout() {
   const { cart } = useContext(CartContext)
 
   return () => {
-    console.log("Going to Checkout!")
     window.open(cart.checkout.webUrl)
   }
 }
