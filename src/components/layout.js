@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
           margin: `0 auto`,
         }}
       >
-        <main style={{display:'flex',flexFlow:'column',
+        <main style={{display:'flex',flexFlow:'column', overflow:'hidden',
         justifyContent:'center',alignItems:'center'}}>{children}</main>
         <footer>
         </footer>

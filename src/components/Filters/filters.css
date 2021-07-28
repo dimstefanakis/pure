@@ -41,6 +41,10 @@
   flex: 1;
 }
 
+.ant-checkbox{
+  flex: 1;
+}
+
 .collection-item-container{
   width: 50%;
   font-size: 1rem;
